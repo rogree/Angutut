@@ -17,18 +17,26 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome', 'Firefox'],
+  // Added from here http://karma-runner.github.io/0.8/plus/Cloud9.html
+    browsers : ['PhantomJS'],
+    
+    hostname: process.env.IP,
+    port: process.env.PORT,
+    runnerPort: 0,
+    
 
     plugins : [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
-            'karma-jasmine'
+            'karma-jasmine',
+            'karma-phantomjs-launcher'
             ],
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
     }
+    
 
   });
 };
